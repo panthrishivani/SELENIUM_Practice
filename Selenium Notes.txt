@@ -1,1 +1,13 @@
 Here we will create selenium notes...
+1) Differenece between quit() and close()
+	quit() is used to completely shut down the WebDriver and close all windows, while close() is used 
+	to close the current window and leave other windows open.
+	quit(): This method is used to close all browser windows that were opened by the driver. 
+	When you call the quit() method, it will close all windows and also kill the WebDriver process. 
+	This means that you cannot use the driver anymore after calling the quit() method.
+
+	close(): This method is used to close the current window that the driver is controlling. 
+	If there are multiple windows open, calling the close() method will only close the current window and leave the other windows open. 
+	You can still use the driver to control the remaining windows after calling the close() method.
+	*************************************************************************************************************
+	
