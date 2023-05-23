@@ -10,4 +10,24 @@ Here we will create selenium notes...
 	If there are multiple windows open, calling the close() method will only close the current window and leave the other windows open. 
 	You can still use the driver to control the remaining windows after calling the close() method.
 	*************************************************************************************************************
-	
+	2) What is Action Class?
+	Action class is useful mainly for mouse and keyboard actions
+	Actions class is an ability provided by Selenium for handling keyboard and mouse events. 
+	In Selenium WebDriver, handling these 
+	events includes operations such as drag and drop in Selenium, clicking on multiple elements
+	 with the control key, among others.
+	 
+	 Actions action = new Actions(driver);
+     action.moveToElement(element).click().perform();
+      Mouse Actions in Selenium:
+
+	doubleClick(): Performs double click on the element
+	clickAndHold(): Performs long click on the mouse without releasing it
+	dragAndDrop(): Drags the element from one point and drops to another
+	moveToElement(): Shifts the mouse pointer to the center of the element
+	contextClick(): Performs right-click on the mouse
+	Keyboard Actions in Selenium:
+
+sendKeys(): Sends a series of keys to the element
+keyUp(): Performs key release
+keyDown(): Performs keypress without release
