@@ -1,4 +1,4 @@
-package Section11;
+package Miscellenous;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
