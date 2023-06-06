@@ -31,3 +31,11 @@ Here we will create selenium notes...
 sendKeys(): Sends a series of keys to the element
 keyUp(): Performs key release
 keyDown(): Performs keypress without release
+
+
+*************************************************************************************************************
+
+chrome options is selenium
+
+
+In the Selenium framework, ChromeOptions is a class that allows you to configure and customize the behavior of the Chrome browser when automated testing is performed using Selenium WebDriver.
