@@ -39,3 +39,109 @@ chrome options is selenium
 
 
 In the Selenium framework, ChromeOptions is a class that allows you to configure and customize the behavior of the Chrome browser when automated testing is performed using Selenium WebDriver.
+
+
+********************************************************************************
+Stream and its method
+
+A "stream" is a sequence of data elements that can be processed in a sequential manner. In programming languages, including Java, streams provide a powerful and expressive way to manipulate collections of data.
+
+In Java, the Stream API was introduced in Java 8 as part of the java.util.stream package. It allows you to perform various operations on collections or arrays in a functional programming style. Here are some commonly used methods and operations available with streams:
+
+Creating a Stream:
+
+From a collection: stream() method of the Collection interface.
+From an array: Arrays.stream(array) method.
+From individual elements: Stream.of(element1, element2, ...).
+From a range of values: IntStream.range(start, end) or IntStream.rangeClosed(start, end).
+Intermediate Operations:
+
+filter(Predicate<T>): Filters elements based on a condition.
+map(Function<T, R>): Transforms each element to another type.
+sorted(): Sorts the stream elements.
+distinct(): Removes duplicate elements.
+limit(long n): Limits the stream to the first 'n' elements.
+Terminal Operations:
+
+forEach(Consumer<T>): Performs an action on each element.
+collect(Collector<T, A, R>): Collects the elements into a collection or other data structure.
+count(): Returns the number of elements in the stream.
+anyMatch(Predicate<T>): Returns true if any element matches the given condition.
+allMatch(Predicate<T>): Returns true if all elements match the given condition.
+noneMatch(Predicate<T>): Returns true if no element matches the given condition.
+These are just a few examples of the methods and operations available with streams. The Stream API provides a rich set of functionality for manipulating and processing data in a concise and declarative manner. It's worth exploring the Java documentation or tutorials for a more comprehensive understanding of streams and their capabilities.
+
+import java.util.Arrays;
+import java.util.List;
+
+public class StreamExample {
+    public static void main(String[] args) {
+        List<String> fruits = Arrays.asList("Apple", "Banana", "Grapes", "Orange", "Mango");
+
+        // Example 1: Filter and Print
+        fruits.stream()
+              .filter(fruit -> fruit.startsWith("A"))
+              .forEach(System.out::println);
+
+        System.out.println("--------------------------");
+
+        // Example 2: Map and Collect
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+        List<Integer> squaredNumbers = numbers.stream()
+                                              .map(num -> num * num)
+                                              .collect(Collectors.toList());
+
+        System.out.println(squaredNumbers);
+
+        System.out.println("--------------------------");
+
+        // Example 3: Count
+        long count = fruits.stream()
+                           .filter(fruit -> fruit.length() > 5)
+                           .count();
+
+        System.out.println("Number of fruits with more than 5 characters: " + count);
+
+***********************************************************************************************************
+The Action class in Selenium is a part of the Selenium WebDriver API that provides a way to perform advanced user interactions with web elements. It allows you to simulate complex user interactions like mouse actions, keyboard actions, drag-and-drop, and more. The Action class is typically used for performing actions that cannot be achieved using simple WebDriver methods.
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class ActionClassExample {
+    public static void main(String[] args) {
+        // Set the path to the chromedriver executable
+        System.setProperty("webdriver.chrome.driver", "path/to/chromedriver");
+
+        // Launch the Chrome browser
+        WebDriver driver = new ChromeDriver();
+
+        // Navigate to a webpage
+        driver.get("https://www.example.com");
+
+        // Locate the element on which the action needs to be performed
+        WebElement element = driver.findElement(By.id("example-element"));
+
+        // Create an instance of the Actions class
+        Actions actions = new Actions(driver);
+
+        // Example 1: Mouse Hover
+        actions.moveToElement(element).perform();
+
+        // Example 2: Drag and Drop
+        WebElement sourceElement = driver.findElement(By.id("source-element"));
+        WebElement targetElement = driver.findElement(By.id("target-element"));
+        actions.dragAndDrop(sourceElement, targetElement).perform();
+
+        // Example 3: Keyboard Actions
+        actions.keyDown(Keys.CONTROL)
+               .click(element)
+               .keyUp(Keys.CONTROL)
+               .perform();
+
+        // Close the browser
+        driver.quit();
+    }
+}
