@@ -59,7 +59,7 @@ public class Standalonejava {
 		
 		Actions a  = new Actions(driver); // entery text by Actions class, Actions class keyboard/mouse k event ko handle krti h
 		a.sendKeys(driver.findElement(By.cssSelector("[placeholder='Select Country']")), "india").build().perform();
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".ta-results")));
+		Wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".ta-results")));
 		driver.findElement(By.xpath("(//button[contains(@class,'ta-item')])[2]")).click(); // select india from search result
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("window.scrollBy(0,500)");		
